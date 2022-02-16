@@ -90,7 +90,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-//        marketButton
+        marketButton.setOnClickListener {
+
+            val uri = Uri.parse("market://details?id=com.kakao.talk")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+
+        }
 
     }
 
