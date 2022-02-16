@@ -57,6 +57,16 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        callButton.setOnClickListener {
+
+            val phoneNumber = phoneEditText.text.toString()
+            val uri = Uri.parse("tel:${phoneNumber}")
+
+            val intent = Intent(Intent.ACTION_CALL, uri)
+            startActivity(intent)
+
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
