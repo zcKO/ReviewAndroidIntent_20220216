@@ -81,9 +81,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-//
-//        naverButton
-//
+
+        naverButton.setOnClickListener {
+
+            val uri = Uri.parse("https://www.naver.com")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+
+        }
+
 //        marketButton
 
     }
