@@ -67,6 +67,21 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        sendSmsButton.setOnClickListener {
+
+            val phoneNumber = phoneEditText.text.toString()
+            val uri = Uri.parse("smsto:${phoneNumber}")
+
+            val intent = Intent(Intent.ACTION_SENDTO, uri)
+            startActivity(intent)
+
+
+        }
+//
+//        naverButton
+//
+//        marketButton
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
