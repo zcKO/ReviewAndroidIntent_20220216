@@ -17,14 +17,13 @@ class OtherActivity : AppCompatActivity() {
         val name = intent.getStringExtra(SEND_NAME).toString()
         val phone = intent.getStringExtra(SEND_PHONE).toString()
 
-        getNameTextView.text = name
-        getPhoneTextView.text = phone
-
+        getNameEditText.setText(name)
+        getPhoneEditText.setText(phone)
 
         sendInfoButton.setOnClickListener {
 
-            val changeName = changeUserNameEditText.text.toString()
-            val changePhone = changeUserPhoneEditText.text.toString()
+            val changeName = getNameEditText.text.toString()
+            val changePhone = getPhoneEditText.text.toString()
 
             val resultIntent = Intent()
             resultIntent.putExtra(SEND_NAME, changeName)
@@ -35,7 +34,6 @@ class OtherActivity : AppCompatActivity() {
             finish()
 
         }
-
 
     }
 }
