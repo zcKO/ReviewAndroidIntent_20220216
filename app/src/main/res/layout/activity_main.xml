@@ -29,7 +29,7 @@
         android:text="전화번호" />
 
     <EditText
-        android:id="@+id/전화번호"
+        android:id="@+id/phoneEditText"
         android:hint="전화번호를 입력해주세요."
         android:layout_width="match_parent"
         android:textSize="15sp"
@@ -42,6 +42,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/moveButton"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="화면이동"
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/sendDataButton"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="데이터보내기"
@@ -57,6 +59,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/inputDataButton"
             android:layout_width="0dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
@@ -73,6 +76,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/dialButton"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="전화 걸기 (DIAL)"
@@ -80,6 +84,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/callButton"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="전화 걸기 (CALL)"
@@ -88,6 +93,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/sendSmsButton"
             android:layout_width="0dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
@@ -104,6 +110,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/marketButton"
             android:layout_width="0dp"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
