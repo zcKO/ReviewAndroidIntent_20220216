@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     val REQ_USERINFO_CODE: Int = 1000
     val SEND_NAME: String = "name"
     val SEND_PHONE = "phone"
+    val SMS_BODY = "sms_body"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,8 +74,11 @@ class MainActivity : AppCompatActivity() {
             val uri = Uri.parse("smsto:${phoneNumber}")
 
             val intent = Intent(Intent.ACTION_SENDTO, uri)
-            startActivity(intent)
+            val userName = userNameEditText.text.toString()
 
+            // 내용 담아서 보내기
+            intent.putExtra(SMS_BODY, userName)
+            startActivity(intent)
 
         }
 //
