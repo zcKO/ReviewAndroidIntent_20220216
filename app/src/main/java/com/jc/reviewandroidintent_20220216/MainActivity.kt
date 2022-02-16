@@ -6,6 +6,11 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val REQ_USERINFO_CODE: Int = 1000
+    val SEND_NAME: String = "name"
+    val SEND_PHONE = "phone"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,9 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         sendDataButton.setOnClickListener {
 
-            val SEND_NAME = "name"
-            val SEND_PHONE = "phone"
-
             val sendData = userNameEditText.text.toString()
             val phoneData = phoneEditText.text.toString()
 
@@ -29,6 +31,38 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(SEND_NAME, sendData)
             intent.putExtra(SEND_PHONE, phoneData)
             startActivity(intent)
+
+        }
+
+        inputDataButton.setOnClickListener {
+
+            val sendData = userNameEditText.text.toString()
+            val phoneData = phoneEditText.text.toString()
+
+            val intent = Intent(this, OtherActivity::class.java)
+            intent.putExtra(SEND_NAME, sendData)
+            intent.putExtra(SEND_PHONE, phoneData)
+            startActivityForResult(intent, REQ_USERINFO_CODE)
+
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // 코드가 맞는지 확인
+        if (requestCode == REQ_USERINFO_CODE) {
+
+            if (resultCode == RESULT_OK) {
+
+                val newName = data?.getStringExtra(SEND_NAME)
+                val newPhone = data?.getStringExtra(SEND_PHONE)
+
+                userNameEditText.setText(newName)
+                phoneEditText.setText(newPhone)
+
+            }
 
         }
 
