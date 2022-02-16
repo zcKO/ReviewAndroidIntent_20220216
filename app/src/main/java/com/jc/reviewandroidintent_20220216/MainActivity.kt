@@ -1,6 +1,7 @@
 package com.jc.reviewandroidintent_20220216
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -43,6 +44,16 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(SEND_NAME, sendData)
             intent.putExtra(SEND_PHONE, phoneData)
             startActivityForResult(intent, REQ_USERINFO_CODE)
+
+        }
+
+        dialButton.setOnClickListener {
+
+            val phoneNumber = phoneEditText.text.toString()
+            val uri = Uri.parse("tel:${phoneNumber}")
+
+            val intent = Intent(Intent.ACTION_DIAL, uri)
+            startActivity(intent)
 
         }
 
